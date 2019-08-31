@@ -16,8 +16,8 @@ var model = {
 
     fire: function() {
             var input = document.getElementById("coord");
-            var fire = document.getElementById("fire!");
-            comsole.log("МЕТОД FIRE РАБОТАЕТ");
+            var fire = document.getElementById("fire");
+            console.log("МЕТОД FIRE РАБОТАЕТ");
             if (typeof((input.value)[1]) == NaN && (input.value).length > 2 && this.alfabet.indexOf(input.value) == -1) {
                     alert("Вы ввели ошибочные координаты выстрела, повторите еще раз!");
                     
@@ -30,12 +30,13 @@ var model = {
 
 }
     function init(){ 
-        var fire = document.getElementById("fire!");
+        var fire = document.getElementById("fire");
         console.log(fire);
 
-        fire.addEventListener('click', function(){
+        fire.addEventListener('click', function(event){
+            // event.preventDefault();
             console.log("test");
-            // model.fire()
+            model.fire();
         });
         console.log("заработало!!!!!");
 

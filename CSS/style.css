@@ -64,5 +64,11 @@ input {
 
 }
 
+#fire {
+        width: 40px;
+        height: 40px;
+        background: white;
+        text-align: center;
+        line-height:40px;
 
-
+}
