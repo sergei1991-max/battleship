@@ -17,11 +17,11 @@ var model = {
     fire: function() {
             var input = document.getElementById("coord");
             var fire = document.getElementById("fire");
-            console.log("МЕТОД FIRE РАБОТАЕТ");
-            if (typeof((input.value)[1]) == NaN && (input.value).length > 2 && this.alfabet.indexOf(input.value) == -1) {
+            console.log(isNaN(+(input.value)[1]));
+            if (+(input.value)[1] > 6 || isNaN(+(input.value)[1]) || (input.value).length > 2 || this.alfabet.indexOf((input.value)[0]) == -1) {
                     alert("Вы ввели ошибочные координаты выстрела, повторите еще раз!");
-                    
-                
+            } else {
+                alert("Координаты указаны верно!");
             }
 
 
