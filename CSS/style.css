@@ -21,8 +21,9 @@ td{
 
 table{
     border-spacing: 0px;
-    margin: auto; 
-    margin-top: 98px;
+    /* margin: auto;  */
+    margin-top: 100px;
+    margin-left: 170px;
 
 }
 
@@ -50,17 +51,18 @@ input {
             position: absolute;
             top: 10px;
             left: 250px;
+            color: bisque;
 
 }
 
 .hit {
-        background: url(../images/ship.png) center center no-repeat cover;
+        background: url(../images/ship.png) center center no-repeat;
 
 
 }
 
 .miss {
-        background: url(../images/miss.png) center center no-repeat cover;
+        background: url(../images/miss.png) center center no-repeat;
 
 }
 
