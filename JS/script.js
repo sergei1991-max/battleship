@@ -17,9 +17,10 @@ var model = {
     fire: function() {
             var input = document.getElementById("coord");
             var fire = document.getElementById("fire");
-            console.log("МЕТОД FIRE РАБОТАЕТ");
+            console.log(typeof(input.value));
             if (typeof((input.value)[1]) == NaN && (input.value).length > 2 && this.alfabet.indexOf(input.value) == -1) {
                     alert("Вы ввели ошибочные координаты выстрела, повторите еще раз!");
+
                     
                 
             }
