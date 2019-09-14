@@ -189,14 +189,16 @@ function init(){
         console.log(input);
 
     input.addEventListener("keydown", function(event){
-
-        if ( event.code == "Enter") fire.click();
-        return false;
-
+       
+        if ( event.code == "Enter") {
+            fire.click();
+            event.preventDefault();
+        }
+  
     })
 
 
-      } 
+} 
 
 
 
