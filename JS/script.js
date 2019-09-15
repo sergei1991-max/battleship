@@ -175,30 +175,29 @@ var controller = {
 
 function init(){ 
     var fire = document.getElementById("fire");
-
+    let input = document.querySelector("#coord");
     console.log(fire);
 
     fire.addEventListener('click', function(event){
         event.preventDefault();
         console.log("test");
         model.fire();
+        input.value = "";
     });
-    console.log("заработало!!!!!");
-
-    let input = document.querySelector("#coord");
-        console.log(input);
+    
 
     input.addEventListener("keydown", function(event){
        
-        if ( event.code == "Enter") {
-            fire.click();
+        if ( event.key == "Enter") {
+            model.fire();
             event.preventDefault();
+            event.target.value = "";
         }
-  
+       
     })
 
 
-} 
+      } 
 
 
 
