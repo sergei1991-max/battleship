@@ -1,3 +1,5 @@
+// ОБЪЕКТ МОДЕЛИ
+
 window.onload = init;
 var model = {
     countShips: 7,
@@ -16,6 +18,8 @@ var model = {
         
         
     ],
+
+    // МЕТОД "FIRE", ОТВЕЧАЮЩИЙ ЗА ВЫСТРЕЛЫ В ИГРЕ
 
     fire: function() {
             this.countshoots++;
@@ -41,10 +45,70 @@ var model = {
 
             }
                 if (this.countShips==this.diveShips) view.displayMessage("Вы победили! Враг разбит! Победа за нами!");
-    }
+    },
+
+    loadShips: function() {
+            let ship1, ship2, ship3;
+            let allCoordShips = [];
 
 
+            let coordShip1 = [],
+            ship1 = 0;
+            while (ship1<this.ships[0]){
+                let randomCoordY = Math.floor(Math.random()*7);
+                let randomCoordX = Math.floor(Math.random()*7);
+                    console.log(randomCoordX);
+
+                let randomCoordZ = "" + randomCoordY + randomCoordX;
+
+                    console.log(randomCoordZ);
+                if (coordShip1.indexOf(randomCoordZ) != -1) continue;
+                coordShip1.push(randomCoordZ);
+                ship1++;
+
+            }
+                console.log(coordShip1);
+            this.coordShips[0].locations1 = coordShip1;
+            allCoordShips = [...coordShip1];
+            ship2 = 0;
+            let coordShip2 = [];
+            while (ship2<this.ships[1]){
+                let numberCoordinations = 0;
+                let SinglecoordShip2 = [];
+                while (numberCoordinations<2){}
+                    if (numberCoordinations == 0){
+
+                        //0 - горизонт. направление корабля, а 1 - вертикал. направление
+                        if (randomWay == 0)  {let randomCoordX = Math.floor(Math.random()*6);
+                            let randomCoordY = Math.floor(Math.random()*7)}
+                        else {
+                            let randomCoordY = Math.floor(Math.random()*6);
+                            let randomCoordX = Math.floor(Math.random()*7)}
+                        }
+
+                        let randomCoordZ = "" + randomCoordY + randomCoordX;
+
+                            console.log(randomCoordZ);
+                        if (allCoordShips.indexOf(randomCoordZ) != -1) continue;
+                        
+                        
+                        SinglecoordShip2.push(randomCoordZ);
+                        numberCoordinations++
+                        
+                    }
+                }
+            }
+                console.log(coordShip1);
+            this.coordShips[0].locations1 = coordShip1;
+
+
+
+
+    } 
 }
+    
+// ДИСПЛЕЙ, ПОКАЗЫВАЮЩИЙ ПРОМАХИ ПОПАДАНИЯ ПО КОРАБЛЯМ 
+
 var view = {
     displayMessage: function(y){
 
@@ -71,6 +135,8 @@ var view = {
     }
 
 } 
+
+// КОНТРОЛЛЕР, ОТВЕЧАЮЩИЙ ЗА ОБЩИЙ ФУНКЦИОНАЛ ИГРЫ (ПОТОПЛЕНИЕ ВСЕХ КОРАБЛЕЙ)
 
 var controller = {
 
@@ -174,6 +240,9 @@ var controller = {
 
 
 function init(){ 
+    model.loadShips();
+    
+    
     var fire = document.getElementById("fire");
     let input = document.querySelector("#coord");
     console.log(fire);
