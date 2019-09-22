@@ -49,10 +49,10 @@ var model = {
 
     loadShips: function() {
             let ship1, ship2, ship3;
+
             let allCoordShips = [];
 
-
-            let coordShip1 = [],
+            let coordShip1 = [];
             ship1 = 0;
             while (ship1<this.ships[0]){
                 let randomCoordY = Math.floor(Math.random()*7);
@@ -67,23 +67,26 @@ var model = {
                 ship1++;
 
             }
-                console.log(coordShip1);
+            console.log(coordShip1);
             this.coordShips[0].locations1 = coordShip1;
+
             allCoordShips = [...coordShip1];
+
             ship2 = 0;
             let coordShip2 = [];
             while (ship2<this.ships[1]){
                 let numberCoordinations = 0;
                 let SinglecoordShip2 = [];
-                while (numberCoordinations<2){}
+                let randomWay = Math.floor(Math.random()*2);   //0 - горизонт. направление корабля, а 1 - вертикал. направление
+                while (numberCoordinations<2){
                     if (numberCoordinations == 0){
-
-                        //0 - горизонт. направление корабля, а 1 - вертикал. направление
-                        if (randomWay == 0)  {let randomCoordX = Math.floor(Math.random()*6);
-                            let randomCoordY = Math.floor(Math.random()*7)}
-                        else {
-                            let randomCoordY = Math.floor(Math.random()*6);
-                            let randomCoordX = Math.floor(Math.random()*7)}
+                        let randomCoordX,randomCoordY;
+                        if (randomWay == 0)  {
+                            randomCoordX = Math.floor(Math.random()*6);
+                            randomCoordY = Math.floor(Math.random()*7);
+                        } else {
+                            randomCoordY = Math.floor(Math.random()*6);
+                            randomCoordX = Math.floor(Math.random()*7);
                         }
 
                         let randomCoordZ = "" + randomCoordY + randomCoordX;
@@ -95,15 +98,42 @@ var model = {
                         SinglecoordShip2.push(randomCoordZ);
                         numberCoordinations++
                         
+                    } else {
+                        if (randomWay == 0) {
+                            console.log(SinglecoordShip2[0]);
+                            let coordX = +(SinglecoordShip2[0][1]) + 1;
+                            let coordY = +(SinglecoordShip2[0][0]);
+                            let randomCoordZ = "" + coordY + coordX;
+                            if (allCoordShips.indexOf(randomCoordZ) != -1) {
+                                SinglecoordShip2 = [];
+                                numberCoordinations = 0;
+                                continue;
+                            }
+                            SinglecoordShip2.push(randomCoordZ);
+                            numberCoordinations++
+                        } else {
+                            console.log(SinglecoordShip2[0][1]);
+                            let coordX = +(SinglecoordShip2[0][1]);
+                            let coordY = +(SinglecoordShip2[0][0]) + 1;
+                            let randomCoordZ = "" + coordY + coordX;
+                            if (allCoordShips.indexOf(randomCoordZ) != -1) {
+                                SinglecoordShip2 = [];
+                                numberCoordinations = 0;
+                                continue;
+                            }
+                            SinglecoordShip2.push(randomCoordZ);
+                            numberCoordinations++
+                        }
+
                     }
                 }
+                coordShip2.push(SinglecoordShip2);
+                ship2++;
+                allCoordShips.push(...SinglecoordShip2);
             }
-                console.log(coordShip1);
-            this.coordShips[0].locations1 = coordShip1;
-
-
-
-
+            console.log(coordShip2);
+            this.coordShips[1].locations2 = coordShip2;
+          
     } 
 }
     
@@ -230,15 +260,6 @@ var controller = {
 }
 
 
-
-
-
-
-
-
-
-
-
 function init(){ 
     model.loadShips();
     
@@ -266,7 +287,7 @@ function init(){
     })
 
 
-      } 
+} 
 
 
 
