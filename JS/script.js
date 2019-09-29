@@ -53,6 +53,8 @@ var model = {
             let allCoordShips = [];
 
             let coordShip1 = [];
+
+            // 1-ПАЛУБНЫЙ КОРАБЛЬ
             ship1 = 0;
             while (ship1<this.ships[0]){
                 let randomCoordY = Math.floor(Math.random()*7);
@@ -71,6 +73,8 @@ var model = {
             this.coordShips[0].locations1 = coordShip1;
 
             allCoordShips = [...coordShip1];
+
+            // 2-ПАЛУБНЫЙ КОРАБЛЬ
 
             ship2 = 0;
             let coordShip2 = [];
@@ -131,12 +135,107 @@ var model = {
                 ship2++;
                 allCoordShips.push(...SinglecoordShip2);
             }
+
             console.log(coordShip2);
-            this.coordShips[1].locations2 = coordShip2;
-          
-    } 
-}
+          this.coordShips[1].locations2 = coordShip2;
+            // 3-ПАЛУБНЫЙ КОРАБЛЬ
+
+            ship3 = 0;
+            let coordShip3 = [];
+            while (ship3<this.ships[2]){
+                let numberCoordinations = 0;
+                let SinglecoordShip3 = [];
+                let randomWay = Math.floor(Math.random()*2);   //0 - горизонт. направление корабля, а 1 - вертикал. направление
+                while (numberCoordinations<3){
+                    if (numberCoordinations == 0){
+                        let randomCoordX,randomCoordY;
+                        if (randomWay == 0)  {
+                            randomCoordX = Math.floor(Math.random()*5);
+                            randomCoordY = Math.floor(Math.random()*6);
+                        } else {
+                            randomCoordY = Math.floor(Math.random()*5);
+                            randomCoordX = Math.floor(Math.random()*6);
+                        }
+
+                        let randomCoordZ = "" + randomCoordY + randomCoordX;
+
+                            console.log(randomCoordZ);
+                        if (allCoordShips.indexOf(randomCoordZ) != -1) continue;
+                        
+                        
+                        SinglecoordShip3.push(randomCoordZ);
+                        numberCoordinations++
+                    } else if (numberCoordinations = 1){
+                        if (randomWay == 0) {
+                            console.log(SinglecoordShip3[0]);
+                            let coordX = +(SinglecoordShip3[0][1]) + 1;
+                            let coordY = +(SinglecoordShip3[0][0]);
+                            let randomCoordZ = "" + coordY + coordX;
+                            if (allCoordShips.indexOf(randomCoordZ) != -1) {
+                                SinglecoordShip3 = [];
+                                numberCoordinations = 0;
+                                continue;
+                            }
+                            SinglecoordShip3.push(randomCoordZ);
+                            numberCoordinations++
+                        } else {
+                            console.log(SinglecoordShip3[0][1]);
+                            let coordX = +(SinglecoordShip3[0][1]);
+                            let coordY = +(SinglecoordShip3[0][0]) + 1;
+                            let randomCoordZ = "" + coordY + coordX;
+                            if (allCoordShips.indexOf(randomCoordZ) != -1) {
+                                SinglecoordShip3 = [];
+                                numberCoordinations = 0;
+                                continue;
+                            }
+                            SinglecoordShip3.push(randomCoordZ);
+                            numberCoordinations++
+                        }
+
+                    }else {
+
+                        if (randomWay == 0) {
+                            console.log(SinglecoordShip3[0]);
+                            let coordX = +(SinglecoordShip3[0][1]) + 2;
+                            let coordY = +(SinglecoordShip3[0][0]);
+                            let randomCoordZ = "" + coordY + coordX;
+                            if (allCoordShips.indexOf(randomCoordZ) != -1) {
+                                SinglecoordShip3 = [];
+                                numberCoordinations = 0;
+                                continue;
+                            }
+                            SinglecoordShip3.push(randomCoordZ);
+                            numberCoordinations++
+                        } else {
+                            console.log(SinglecoordShip3[0][1]);
+                            let coordX = +(SinglecoordShip3[0][1]);
+                            let coordY = +(SinglecoordShip3[0][0]) + 2;
+                            let randomCoordZ = "" + coordY + coordX;
+                            if (allCoordShips.indexOf(randomCoordZ) != -1) {
+                                SinglecoordShip3 = [];
+                                numberCoordinations = 0;
+                                continue;
+                            }
+                            SinglecoordShip3.push(randomCoordZ);
+                            numberCoordinations++
+                        }
     
+                    }
+                }
+                coordShip3.push(SinglecoordShip3);
+                ship3++;
+                allCoordShips.push(...SinglecoordShip3);
+            }
+
+            console.log(coordShip3);
+          this.coordShips[2].locations3 = coordShip3;
+
+        }      
+    
+}                
+               
+
+
 // ДИСПЛЕЙ, ПОКАЗЫВАЮЩИЙ ПРОМАХИ ПОПАДАНИЯ ПО КОРАБЛЯМ 
 
 var view = {
@@ -285,6 +384,9 @@ function init(){
         }
        
     })
+
+
+
 
 
 } 
