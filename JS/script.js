@@ -165,7 +165,7 @@ var model = {
                         
                         SinglecoordShip3.push(randomCoordZ);
                         numberCoordinations++
-                    } else if (numberCoordinations = 1){
+                    } else if (numberCoordinations == 1){
                         if (randomWay == 0) {
                             console.log(SinglecoordShip3[0]);
                             let coordX = +(SinglecoordShip3[0][1]) + 1;
@@ -192,7 +192,7 @@ var model = {
                             numberCoordinations++
                         }
 
-                    }else {
+                    } else {
 
                         if (randomWay == 0) {
                             console.log(SinglecoordShip3[0]);
