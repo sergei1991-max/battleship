@@ -360,6 +360,10 @@ var controller = {
 
 
 function init(){ 
+    // let audio = document.getElementById("myAudio");
+    // audio.play();
+    
+
     model.loadShips();
     
     
@@ -367,8 +371,15 @@ function init(){
     let input = document.querySelector("#coord");
     console.log(fire);
 
+    // document.addEventListener('scroll', function(){
+    //     document.getElementById("myAudio").play();
+    // });
+
     fire.addEventListener('click', function(event){
+        document.getElementById("myshoot").currentTime = 0.0;
+        
         event.preventDefault();
+        document.getElementById("myshoot").play();
         console.log("test");
         model.fire();
         input.value = "";

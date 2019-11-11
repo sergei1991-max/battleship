@@ -1,0 +1,98 @@
+#wrapper {
+        background-color:black;
+        width: 1024px;
+        height: 863px;
+        border: 2px solid black;
+        margin: auto;
+        background-image: url(../images/board.jpg);
+
+}
+
+body {
+      background-color: black;
+}
+
+td{
+    width: 92px;
+    height: 92px;
+    /* border: 1px solid red; */
+    
+}
+
+table{
+    border-spacing: 0px;
+    /* margin: auto;  */
+    margin-top: 100px;
+    margin-left: 170px;
+
+}
+
+#form{
+       width: 300px;
+       height: 40px;
+       background-color: darkgreen;
+       margin-right: 200px;
+       margin-left: auto;
+       padding: 30px;
+       display: flex;
+           
+
+}
+input {
+       margin-right: 5px;
+
+
+}
+
+
+
+#output {
+            border: 1px solid red;
+            width: 300px;
+            height: 60px;
+            position: absolute;
+            top: 10px;
+            left: 250px;
+            color: bisque;
+
+}
+
+.hit {
+        background: url(../images/ship.png) center center no-repeat;
+
+
+}
+
+.miss {
+        background: url(../images/miss.png) center center no-repeat;
+
+}
+
+#fire {
+        width: 40px;
+        height: 40px;
+        background: white;
+        text-align: center;
+        line-height:40px;
+        cursor: pointer;
+
+}
+
+
+#radar {
+        position: absolute;
+        left: 510px;
+        top: 120px;
+        height: 650px;
+        width: 650px;
+        border-radius: 100%;
+        // border: 1px solid red;
+        transition: 0s all;
+        animation: radar_spin 2s infinite linear;
+}
+
+
+@keyframes radar_spin {
+        0% {transform: rotate(0deg)};
+        100% {transform: rotate(360deg)}
+}
