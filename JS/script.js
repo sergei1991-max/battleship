@@ -263,6 +263,8 @@ var view = {
 
     }
 
+
+
 } 
 
 // КОНТРОЛЛЕР, ОТВЕЧАЮЩИЙ ЗА ОБЩИЙ ФУНКЦИОНАЛ ИГРЫ (ПОТОПЛЕНИЕ ВСЕХ КОРАБЛЕЙ)
@@ -367,8 +369,12 @@ function init(){
     model.loadShips();
     
     
-    var fire = document.getElementById("fire");
+    let fire = document.getElementById("fire");
     let input = document.querySelector("#coord");
+    let user_ships = document.getElementById('user_ships');
+    let area_drop = document.querySelector('table');
+    
+
     console.log(fire);
 
     // document.addEventListener('scroll', function(){
@@ -396,6 +402,17 @@ function init(){
        
     })
 
+    // Перетаскивание кораблей DRAG & DROP
+    user_ships.addEventListener("dragstart", function(e) {
+        // console.log("Поехали!");
+        // console.log(e.target.id);
+        e.dataTransfer.setData('content', e.target.id);
+
+    })
+
+    area_drop.addEventListener("dragenter", function(e) {
+         console.log("Зашел в гости!");
+    })
 
 
 
