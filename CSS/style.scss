@@ -5,7 +5,6 @@
     border: 2px solid black;
     margin: auto;
     background-image: url(../images/board.jpg);
-
 }
 
 body {
@@ -14,39 +13,38 @@ body {
 
 td{
     width: 92px;
-    height: 92px;
-    /* border: 1px solid red; */
-    
+    height: 94px;
+    border: 1px solid;
 }
 
 td.img_ship {
     border: 1px solid red;
     background: url(../images/ship.png) center center no-repeat;
-  }
+}
   
-  td.num_ship {
+td.num_ship {
     border: 1px solid red;
     color: aquamarine;
     font-size: 30px;
     text-align: center;
-  }
+}
   
-  table {
+table {
     position: absolute;
     border-spacing: 0px;
     /* margin: auto;  */
     margin-top: 100px;
     margin-left: 170px;
     z-index: 10;
-  }
+}
   
-  table#user_ships {
+table#user_ships {
     position: absolute;
     border-spacing: 0px;
     /* margin: auto;  */
     top: 192px;
     right: 10px;
-  }
+}
 
 #form{
     width: 300px;
@@ -76,13 +74,10 @@ input {
 
 .hit {
     background: url(../images/ship.png) center center no-repeat;
-
-
 }
 
 .miss {
     background: url(../images/miss.png) center center no-repeat;
-
 }
 
 #fire {
@@ -92,9 +87,7 @@ input {
     text-align: center;
     line-height:40px;
     cursor: pointer;
-
 }
-
 
 #radar {
     position: absolute;
@@ -108,7 +101,6 @@ input {
     animation: radar_spin 2s infinite linear;
     z-index: 1;
 }
-
 
 @keyframes radar_spin {
     0% {transform: rotate(0deg)};

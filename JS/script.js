@@ -369,10 +369,11 @@ function init(){
     model.loadShips();
     
     
-    let fire = document.getElementById("fire");
-    let input = document.querySelector("#coord");
-    let user_ships = document.getElementById('user_ships');
-    let area_drop = document.querySelector('table');
+    let fire = document.getElementById("fire"),
+    input = document.querySelector("#coord"),
+    user_ships = document.getElementById('user_ships'),
+    area_drop = document.querySelector('table');
+    let dragObj = {name: ""};
     
 
     console.log(fire);
@@ -393,28 +394,73 @@ function init(){
     
 
     input.addEventListener("keydown", function(event){
-       
         if ( event.key == "Enter") {
             model.fire();
             event.preventDefault();
             event.target.value = "";
         }
-       
     })
 
     // Перетаскивание кораблей DRAG & DROP
     user_ships.addEventListener("dragstart", function(e) {
+        dragObj.name = e.target.id;
         // console.log("Поехали!");
         // console.log(e.target.id);
-        e.dataTransfer.setData('content', e.target.id);
-
+       e.dataTransfer.setData('content', e.target.id);
+        // console.log(e.dataTransfer.getData('content'));
     })
-
+    
     area_drop.addEventListener("dragenter", function(e) {
-         console.log("Зашел в гости!");
+        switch (dragObj.name) {
+            case "drag1" :
+                e.target.style.border = "1px solid red";
+                console.log("Зашел в гости 1!");
+                break
+            case "drag2" :
+                console.log("Зашел в гости 2!");
+                break
+            case "drag3" :
+                console.log("Зашел в гости 3!");
+                break
+            default:
+
+                break
+        }
+        
     })
 
+    area_drop.addEventListener("dragleave", function(e) {
+        switch (dragObj.name) {
+            case "drag1" :
+                e.target.style.border = "1px solid";
+                console.log("Вышел 1!");
+                break
+            case "drag2" :
+                console.log("Вышел 2!");
+                break
+            case "drag3" :
+                console.log("Вышел 3!");
+                break
+            default:
 
+                break
+        }
+        return false;
+    })
+    
+    area_drop.ondragover = function(){return false};
+
+    area_drop.addEventListener('drop', function(e){
+        console.log(e.target);
+        e.target.style.background = "url(images/ship.png) center center no-repeat";
+
+        let x = document.getElementById(e.dataTransfer.getData("content")).nextElementSibling.textContent;
+        let y = parseInt(x)-1;
+        document.getElementById(e.dataTransfer.getData("content")).nextElementSibling.textContent =  `${y}/3`;
+        e.target.draggable = false;
+
+        console.log('DROP!');
+    })
 
 
 } 

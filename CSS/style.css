@@ -13,8 +13,8 @@ body {
 
 td {
   width: 92px;
-  height: 92px;
-  /* border: 1px solid red; */
+  height: 94px;
+  border: 1px solid;
 }
 
 td.img_ship {
