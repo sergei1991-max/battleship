@@ -32,10 +32,12 @@ td.img_ship {
   }
   
   table {
+    position: absolute;
     border-spacing: 0px;
     /* margin: auto;  */
     margin-top: 100px;
     margin-left: 170px;
+    z-index: 10;
   }
   
   table#user_ships {
@@ -104,6 +106,7 @@ input {
     // border: 1px solid red;
     transition: 0s all;
     animation: radar_spin 2s infinite linear;
+    z-index: 1;
 }
 
 

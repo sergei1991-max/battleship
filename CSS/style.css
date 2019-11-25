@@ -30,10 +30,12 @@ td.num_ship {
 }
 
 table {
+  position: absolute;
   border-spacing: 0px;
   /* margin: auto;  */
   margin-top: 100px;
   margin-left: 170px;
+  z-index: 10;
 }
 
 table#user_ships {
@@ -98,6 +100,7 @@ input {
   transition: 0s all;
   -webkit-animation: radar_spin 2s infinite linear;
           animation: radar_spin 2s infinite linear;
+  z-index: 1;
 }
 
 @-webkit-keyframes radar_spin {
