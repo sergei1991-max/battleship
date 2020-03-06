@@ -457,7 +457,7 @@ function init(){
         let x = document.getElementById(e.dataTransfer.getData("content")).nextElementSibling.textContent;
         let y = parseInt(x)-1;
         document.getElementById(e.dataTransfer.getData("content")).nextElementSibling.textContent =  `${y}/3`;
-        e.target.draggable = false;
+        
 
         console.log('DROP!');
     })
